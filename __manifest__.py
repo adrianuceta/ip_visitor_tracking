@@ -1,5 +1,5 @@
 {
-    'name': 'ip_visitor_tracking',
+    'name': 'IP Visitor Tracking',
     'version': '1.0',
     'summary': 'Integración con la API de IPGeolocation',
     'description': 'Obtención de datos gelógicos en tiempo real.',
