@@ -1,0 +1,66 @@
+<odoo>
+    <!-- Vista formulario -->
+    <record id="view_ip_visitor_tracking_form" model="ir.ui.view">
+        <field name="name">ip.visitor.tracking.form</field>
+        <field name="model">ip.visitor.tracking</field>
+        <field name="arch" type="xml">
+            <form string="IP Visitor Information">
+                <sheet>
+                    <group>
+                        <field name="Direccion_IP"/>
+                    </group>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="get_ip_data" type="object" 
+                                string="Obtener Datos de Geolocalización" 
+                                class="oe_stat_button"/>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="Pais" readonly="1"/>
+                            <field name="Ciudad" readonly="1"/>
+                            <field name="Longitud" readonly="1"/>
+                            <field name="Latitud" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="Proveedor" readonly="1"/>
+                            <field name="Organizacion" readonly="1"/>
+                            <field name="Hora" readonly="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista árbol -->
+    <record id="view_ip_visitor_tracking_tree" model="ir.ui.view">
+        <field name="name">ip.visitor.tracking.tree</field>
+        <field name="model">ip.visitor.tracking</field>
+        <field name="arch" type="xml">
+            <tree string="IP Visitor Information">
+                <field name="Direccion_IP"/>
+                <field name="Pais"/>
+                <field name="Ciudad"/>
+                <field name="Proveedor"/>
+                <field name="Hora"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Acción de ventana -->
+    <record id="action_ip_visitor_tracking" model="ir.actions.act_window">
+        <field name="name">IP Visitor Tracking</field>
+        <field name="res_model">ip.visitor.tracking</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menú -->
+    <menuitem id="menu_ip_tracking_root" 
+              name="IP Tracking" 
+              sequence="10"/>
+
+    <menuitem id="menu_ip_visitor_tracking" 
+              name="Visitor Tracking" 
+              parent="menu_ip_tracking_root" 
+              action="action_ip_visitor_tracking"/>
+</odoo>
